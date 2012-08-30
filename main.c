@@ -1,3 +1,9 @@
+/*
+ * 	Yahoo Cracking
+ * 	Require : libcurl
+ * 	Peter Nguyen
+ */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
