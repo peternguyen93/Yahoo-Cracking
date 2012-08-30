@@ -1,3 +1,9 @@
+/*
+ * 	Yahoo Cracking Function
+ * 	Require : libcurl
+ * 	Peter Nguyen
+ */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -5,8 +11,11 @@
 #include<curl/curl.h>
 
 #define BUFF_SIZE 255
-
-const char file_tmp[BUFF_SIZE] = "/tmp/file_load";
+#if defined(_WIN32) || defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__)
+	const char file_tmp[BUFF_SIZE] = "C:\\file_load";
+#elif defined(__CNUC__) || defined(__unix__)
+	const char file_tmp[BUFF_SIZE] = "/tmp/file_load";
+#endif
 
 int send_request(char *username, char *password){
 	CURL *curl;
